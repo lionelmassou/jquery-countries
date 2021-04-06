@@ -2,11 +2,11 @@
 
 $("#btnShowCountries").click(function () {
 
-    // pour vider la liste précédente contenue dans data
-    // $("#countries").empty()
-
     $(function getCountries() {
+
+        // pour vider la liste précédente contenue dans data
         $("#countries").empty()
+
         $.ajax({
             url: "http://localhost:8000/countries",
 
@@ -24,6 +24,7 @@ $("#btnShowCountries").click(function () {
             }
         })
     })
+    //  getCountries();
 })
 
 
