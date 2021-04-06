@@ -2,33 +2,26 @@
 
 $(function getCountries() {
 
-    // console.log("salut")
-
-    $.ajax({
-        url: "http://localhost:8000/countries",
-
-        success: function (data, statuts, response) {
-
-            for (var i = 0; i < data.length; i++) {
-               
-                $("#countries").append(`<li>${data[i]}</li>`);
-
-            }
-            $("text").html("Nouveau Click");
-            // console.log(data);
-            // $("#text").html(data)
-        }
-    })
-
     $("#btnShowCountries").click(function () {
         getCountries();
+
+        $.ajax({
+            url: "http://localhost:8000/countries",
+
+            // success: function (data, statuts, response) {
+            success: (data, status, response) => {
+
+                for (var i = 0; i < data.length; i++) {
+
+                    $("#countries").append(`<li>${data[i]}</li>`);
+
+                }
+                // console.log(data);
+                // $("#text").html(data)
+            }
+        })
     })
-
 })
-
-
-
-
 
 
 
