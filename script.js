@@ -1,23 +1,26 @@
 // var request = require("request");
 
-$(function getCountries() {
+$("#btnShowCountries").click(function () {
 
-    $("#btnShowCountries").click(function () {
-        getCountries();
+    // pour vider la liste précédente contenue dans data
+    // $("#countries").empty()
 
+    $(function getCountries() {
+        $("#countries").empty()
         $.ajax({
             url: "http://localhost:8000/countries",
 
             // success: function (data, statuts, response) {
             success: (data, status, response) => {
+                                
+               
+                console.log(data);
 
                 for (var i = 0; i < data.length; i++) {
 
                     $("#countries").append(`<li>${data[i]}</li>`);
 
                 }
-                // console.log(data);
-                // $("#text").html(data)
             }
         })
     })
